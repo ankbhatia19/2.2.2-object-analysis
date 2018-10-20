@@ -71,6 +71,8 @@ min y point"""
         centerY = (yMax + yMin) / 2
 
         cv2.drawContours(src, contours, x, (0, 255, 0), 3)
+        cv2.line(src, (centerX, centerY), (centerX, centerY), (0, 255, 
+0), 5)
 
         distance = (FOCAL_LENGTH * ACTUAL_WIDTH) / width
         H_azimuth = centerX - imgCenterX
@@ -88,11 +90,12 @@ FOCAL_LENGTH))
 
         print("Width of Rect: " + str(width) + " pixels")
         print("Height of Rect: " + str(height) + " pixels")
-        print("Distance of Rect: " + str(distance) + " centimeters")
         print("Center of Rectangle: (" + str(centerX) + ", " + 
 str(centerY) + ")")
         print("Center of Image: (" + str(imgCenterX) + ", " + 
 str(imgCenterY) + ")")
+        print("")
+        print("Distance of Rect: " + str(distance) + " centimeters")
         print("Azimuth: " + str(azimuth) + " degrees")
         print("Altitude: " + str(altitude) + " degrees")
 
